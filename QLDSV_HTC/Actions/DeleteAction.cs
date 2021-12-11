@@ -12,11 +12,13 @@ namespace QLDSV_HTC.Actions
     {
         BindingSource binding;
         object[] data;
+        bool ignoreFirstColumn;
 
-        public DeleteAction(BindingSource binding)
+        public DeleteAction(BindingSource binding, bool ignoreFirstColumn = false)
         {
             this.binding = binding;
             data = ((DataRowView)binding.Current).Row.ItemArray;
+            this.ignoreFirstColumn = ignoreFirstColumn;
         }
 
         private int Find()
@@ -24,10 +26,18 @@ namespace QLDSV_HTC.Actions
             for (int i = 0; i < binding.Count; i++)
             {
                 DataRowView row = (DataRowView)binding[i];
-                if (row.Row.ItemArray.SequenceEqual(data))
+                object[] r = row.Row.ItemArray;
+                int startIndex = ignoreFirstColumn ? 1 : 0;
+                bool isEqual = true;
+                for (int j = startIndex; j < data.Length; j++)
                 {
-                    return i;
+                    if (r[j].ToString() != data[j].ToString())
+                    {
+                        isEqual = false;
+                        break;
+                    }
                 }
+                if (isEqual) return i;
             }
             return -1;
         }
@@ -36,7 +46,8 @@ namespace QLDSV_HTC.Actions
         {
             binding.AddNew();
             DataRowView row = (DataRowView)binding.Current;
-            for (int i = 0; i < data.Length; i++)
+            int startIndex = ignoreFirstColumn ? 1 : 0;
+            for (int i = startIndex; i < data.Length; i++)
             {
                 row[i] = data[i];
             }

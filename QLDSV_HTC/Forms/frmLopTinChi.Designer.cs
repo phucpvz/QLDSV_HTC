@@ -86,12 +86,12 @@ namespace QLDSV_HTC.Forms
             this.groupLTC = new DevExpress.XtraEditors.GroupControl();
             this.ckeHuyLop = new DevExpress.XtraEditors.CheckEdit();
             this.spinSoSVToiThieu = new DevExpress.XtraEditors.SpinEdit();
-            this.lkupGV = new DevExpress.XtraEditors.LookUpEdit();
-            this.bdsGiangVien = new System.Windows.Forms.BindingSource(this.components);
             this.spinNhom = new DevExpress.XtraEditors.SpinEdit();
             this.lkupMH = new DevExpress.XtraEditors.LookUpEdit();
             this.bdsMonHoc = new System.Windows.Forms.BindingSource(this.components);
             this.txtMaKhoa = new DevExpress.XtraEditors.TextEdit();
+            this.lkupGV = new DevExpress.XtraEditors.LookUpEdit();
+            this.bdsGiangVien = new System.Windows.Forms.BindingSource(this.components);
             this.mONHOCTableAdapter = new QLDSV_HTC.DSTableAdapters.MONHOCTableAdapter();
             this.gIANGVIENTableAdapter = new QLDSV_HTC.DSTableAdapters.GIANGVIENTableAdapter();
             mAKHOALabel = new System.Windows.Forms.Label();
@@ -113,12 +113,12 @@ namespace QLDSV_HTC.Forms
             this.groupLTC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ckeHuyLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinSoSVToiThieu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkupGV.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsGiangVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinNhom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkupMH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKhoa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkupGV.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsGiangVien)).BeginInit();
             this.SuspendLayout();
             // 
             // mAKHOALabel
@@ -256,7 +256,7 @@ namespace QLDSV_HTC.Forms
             // 
             // btnRedo
             // 
-            this.btnRedo.Caption = "Làm mới";
+            this.btnRedo.Caption = "Làm lại";
             this.btnRedo.Id = 8;
             this.btnRedo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRedo.ImageOptions.Image")));
             this.btnRedo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnRedo.ImageOptions.LargeImage")));
@@ -702,13 +702,13 @@ namespace QLDSV_HTC.Forms
             this.groupLTC.Controls.Add(sOSVTOITHIEULabel);
             this.groupLTC.Controls.Add(this.spinSoSVToiThieu);
             this.groupLTC.Controls.Add(label4);
-            this.groupLTC.Controls.Add(this.lkupGV);
             this.groupLTC.Controls.Add(nHOMLabel);
             this.groupLTC.Controls.Add(this.spinNhom);
             this.groupLTC.Controls.Add(label3);
             this.groupLTC.Controls.Add(this.lkupMH);
             this.groupLTC.Controls.Add(mAKHOALabel);
             this.groupLTC.Controls.Add(this.txtMaKhoa);
+            this.groupLTC.Controls.Add(this.lkupGV);
             this.groupLTC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupLTC.Enabled = false;
             this.groupLTC.Location = new System.Drawing.Point(0, 332);
@@ -759,31 +759,6 @@ namespace QLDSV_HTC.Forms
             0});
             this.spinSoSVToiThieu.Size = new System.Drawing.Size(100, 20);
             this.spinSoSVToiThieu.TabIndex = 46;
-            // 
-            // lkupGV
-            // 
-            this.lkupGV.Location = new System.Drawing.Point(488, 46);
-            this.lkupGV.Name = "lkupGV";
-            this.lkupGV.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            this.lkupGV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkupGV.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAGV", "MAGV", 51, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAKHOA", "MAKHOA", 53, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("HO", "HO", 25, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TEN", "TEN", 29, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.lkupGV.Properties.DataSource = this.bdsGiangVien;
-            this.lkupGV.Properties.DisplayMember = "MAGV";
-            this.lkupGV.Properties.NullText = "Chọn giảng viên...";
-            this.lkupGV.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoSearch;
-            this.lkupGV.Properties.ValueMember = "MAGV";
-            this.lkupGV.Size = new System.Drawing.Size(237, 20);
-            this.lkupGV.TabIndex = 44;
-            // 
-            // bdsGiangVien
-            // 
-            this.bdsGiangVien.DataMember = "GIANGVIEN";
-            this.bdsGiangVien.DataSource = this.dS;
             // 
             // spinNhom
             // 
@@ -850,6 +825,27 @@ namespace QLDSV_HTC.Forms
             this.txtMaKhoa.Size = new System.Drawing.Size(100, 20);
             this.txtMaKhoa.TabIndex = 1;
             // 
+            // lkupGV
+            // 
+            this.lkupGV.Location = new System.Drawing.Point(488, 46);
+            this.lkupGV.Name = "lkupGV";
+            this.lkupGV.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            this.lkupGV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkupGV.Properties.DataSource = this.bdsGiangVien;
+            this.lkupGV.Properties.DisplayMember = "MAGV";
+            this.lkupGV.Properties.NullText = "Chọn giảng viên...";
+            this.lkupGV.Properties.PopupSizeable = false;
+            this.lkupGV.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoSearch;
+            this.lkupGV.Properties.ValueMember = "MAGV";
+            this.lkupGV.Size = new System.Drawing.Size(237, 20);
+            this.lkupGV.TabIndex = 44;
+            // 
+            // bdsGiangVien
+            // 
+            this.bdsGiangVien.DataMember = "GIANGVIEN";
+            this.bdsGiangVien.DataSource = this.dS;
+            // 
             // mONHOCTableAdapter
             // 
             this.mONHOCTableAdapter.ClearBeforeFill = true;
@@ -891,12 +887,12 @@ namespace QLDSV_HTC.Forms
             this.groupLTC.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ckeHuyLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinSoSVToiThieu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkupGV.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsGiangVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinNhom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkupMH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKhoa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkupGV.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsGiangVien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -955,11 +951,11 @@ namespace QLDSV_HTC.Forms
         private System.Windows.Forms.BindingSource bdsMonHoc;
         private DSTableAdapters.MONHOCTableAdapter mONHOCTableAdapter;
         private DevExpress.XtraEditors.SpinEdit spinNhom;
-        private DevExpress.XtraEditors.LookUpEdit lkupGV;
         private DevExpress.XtraEditors.CheckEdit ckeHuyLop;
         private DevExpress.XtraEditors.SpinEdit spinSoSVToiThieu;
         private System.Windows.Forms.BindingSource bdsGiangVien;
         private DSTableAdapters.GIANGVIENTableAdapter gIANGVIENTableAdapter;
         private DevExpress.XtraBars.BarButtonItem btnRedo;
+        private DevExpress.XtraEditors.LookUpEdit lkupGV;
     }
 }

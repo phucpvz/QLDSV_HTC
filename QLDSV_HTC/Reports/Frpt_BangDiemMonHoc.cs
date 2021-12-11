@@ -122,7 +122,7 @@ namespace QLDSV_HTC.Reports
                 return;
             }
             string maMH = lkupMonHoc.EditValue.ToString();
-            int nhom = 0;
+            int nhom;
             try
             {
                 nhom = int.Parse(cmbNhom.Text);

@@ -17,7 +17,6 @@ namespace QLDSV_HTC.Forms
     public partial class frmSinhVien : DevExpress.XtraEditors.XtraForm
     {
         int vitri = 0;
-        private readonly string matKhauMacDinh = "123";
         bool optionThem;
         private string oldMaSV = "";
         private CommandManager cmd;
@@ -63,6 +62,28 @@ namespace QLDSV_HTC.Forms
             btnThem.Enabled = (bdsLop.Count > 0);
             btnXoa.Enabled = btnSua.Enabled = btnResetPassword.Enabled = (bdsSinhVien.Count > 0);
             cmd.Clear();
+        }
+
+        private void DatMatKhau(string matKhau)
+        {
+            try
+            {
+                string maSV = ((DataRowView)bdsSinhVien[bdsSinhVien.Position])["MASV"].ToString();
+                string strLenh = $"EXECUTE SP_DATMATKHAU '{maSV}', '{matKhau}'";
+                int result = Program.ExecSqlNonQuery(strLenh);
+                if (result == 0)
+                {
+                    XtraMessageBox.Show("Đã đặt mật khẩu cho sinh viên!" +
+                        $"\nMật khẩu là: {matKhau}", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi đặt mật khẩu sinh viên! Bạn hãy thử lại!\n" + ex.Message, "Lỗi",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
         private void frmSinhVien_Load(object sender, EventArgs e)
@@ -201,7 +222,7 @@ namespace QLDSV_HTC.Forms
                 txtHo.Focus();
                 return;
             }
-            if (!Regex.IsMatch(ho, Utils.CAC_TU_CO_DAU))
+            if (!Regex.IsMatch(ho, Utils.HO_NGUOI))
             {
                 XtraMessageBox.Show("Họ của sinh viên chỉ được bao gồm các chữ cái a-z, A-Z\n" +
                     "(có dấu hoặc không dấu) và khoảng trắng giữa các từ!",
@@ -217,7 +238,7 @@ namespace QLDSV_HTC.Forms
                 txtTen.Focus();
                 return;
             }
-            if (!Regex.IsMatch(ten, Utils.TU_CO_DAU))
+            if (!Regex.IsMatch(ten, Utils.TEN_NGUOI))
             {
                 XtraMessageBox.Show("Tên của sinh viên chỉ được bao gồm các chữ cái a-z, A-Z\n" +
                     "(có dấu hoặc không dấu) và chỉ gồm 1 từ duy nhất!",
@@ -268,6 +289,7 @@ namespace QLDSV_HTC.Forms
                 }
                 XtraMessageBox.Show("Đã ghi thông tin sinh viên vào cơ sở dữ liệu!", "Thông báo",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DatMatKhau("123456");
             }
             catch (Exception ex)
             {
@@ -326,29 +348,18 @@ namespace QLDSV_HTC.Forms
         {
             if (XtraMessageBox.Show("Bạn có chắc muốn đặt lại mật khẩu cho sinh viên này không?",
                 "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK) return;
-            try
-            {
-                string maSV = ((DataRowView)bdsSinhVien[bdsSinhVien.Position])["MASV"].ToString();
-                string strLenh = $"EXECUTE SP_DATMATKHAU '{maSV}', '{matKhauMacDinh}'";
-                int result = Program.ExecSqlNonQuery(strLenh);
-                if (result == 0)
-                {
-                    XtraMessageBox.Show("Đã đặt lại mật khẩu cho sinh viên!", "Thông báo",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show("Lỗi đặt mật khẩu sinh viên! Bạn hãy thử lại!\n" + ex.Message, "Lỗi",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            DatMatKhau("123456");
         }
 
         private void gvLop_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             btnXoa.Enabled = btnSua.Enabled = btnResetPassword.Enabled = bdsSinhVien.Count > 0;
             cmd.Clear();
+        }
+
+        private void dateNgaySinh_Enter(object sender, EventArgs e)
+        {
+            dateNgaySinh.Properties.MaxValue = System.DateTime.Today;
         }
     }
 }

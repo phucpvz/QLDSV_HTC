@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using QLDSV_HTC.Actions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -268,7 +269,9 @@ namespace QLDSV_HTC.Forms
         {
             optionThem = true;
             viTriCTDHP = bdsCTDHP.Position;
+            viTriHocPhi = bdsHocPhi.Position;
             bdsCTDHP.AddNew();
+            dateNgayDong.DateTime = System.DateTime.Today;
             ChuyenTrangThaiDangCapNhat_CTDHP(true);
         }
 
@@ -278,6 +281,7 @@ namespace QLDSV_HTC.Forms
                         MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK) return;
 
             int position = bdsCTDHP.Position;
+            viTriHocPhi = bdsHocPhi.Position;
             try
             {
                 bdsCTDHP.RemoveCurrent();
@@ -285,18 +289,20 @@ namespace QLDSV_HTC.Forms
                 this.cT_DONGHOCPHITableAdapter.Update(this.DS_HOCPHI.CT_DONGHOCPHI);
                 hOCPHITableAdapter.Connection.ConnectionString = Program.connstr;
                 this.hOCPHITableAdapter.Fill(this.DS_HOCPHI.HOCPHI);
+                bdsHocPhi.Position = viTriHocPhi;
                 XtraMessageBox.Show("Đã xóa chi tiết đóng học phí!", "Thông báo",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
+                bdsHocPhi.Position = viTriHocPhi;
                 XtraMessageBox.Show("Lỗi xóa chi tiết đóng học phí! Bạn hãy xóa lại!\n" + ex.Message,
                     "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.cT_DONGHOCPHITableAdapter.Fill(this.DS_HOCPHI.CT_DONGHOCPHI);
                 bdsCTDHP.Position = position;
                 return;
             }
-
+            
             if (bdsCTDHP.Count == 0) btnXoaCTDHP.Enabled = btnSuaCTDHP.Enabled = false;
         }
 
@@ -308,6 +314,7 @@ namespace QLDSV_HTC.Forms
             oldNgayDong = dateNgayDong.DateTime.Date;
             oldSoTienDong = int.Parse((bdsCTDHP.Current as DataRowView)["SOTIENDONG"].ToString());
             viTriCTDHP = bdsCTDHP.Position;
+            viTriHocPhi = bdsHocPhi.Position;
             ChuyenTrangThaiDangCapNhat_CTDHP(true);
         }
 
@@ -361,7 +368,7 @@ namespace QLDSV_HTC.Forms
                 else if (result == 1)
                 {
                     XtraMessageBox.Show("Đã có chi tiết đóng học phí của sinh viên này trong niên khóa - học kỳ này và ngày này!\n" +
-                        "Vui lòng chọn ngày đóng khác hoặc sửa số tiền đóng!", "Lỗi",
+                        "Vui lòng chọn ngày đóng khác hoặc sửa số tiền đã đóng của ngày này!", "Lỗi",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -379,6 +386,7 @@ namespace QLDSV_HTC.Forms
                 this.cT_DONGHOCPHITableAdapter.Update(this.DS_HOCPHI.CT_DONGHOCPHI);
                 hOCPHITableAdapter.Connection.ConnectionString = Program.connstr;
                 this.hOCPHITableAdapter.Fill(this.DS_HOCPHI.HOCPHI);
+                bdsHocPhi.Position = viTriHocPhi;
                 XtraMessageBox.Show("Đã ghi thông tin đóng học phí vào cơ sở dữ liệu!", "Thông báo",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ChuyenTrangThaiDangCapNhat_CTDHP(false);
@@ -417,6 +425,11 @@ namespace QLDSV_HTC.Forms
         private void gvHocPhi_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             btnXoaCTDHP.Enabled = btnSuaCTDHP.Enabled = (bdsCTDHP.Count > 0);
+        }
+
+        private void dateNgayDong_Enter(object sender, EventArgs e)
+        {
+            dateNgayDong.Properties.MaxValue = System.DateTime.Today;
         }
     }
 }

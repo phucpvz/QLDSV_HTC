@@ -145,7 +145,7 @@ namespace QLDSV_HTC.Forms
             try
             {
                 maltc = ((DataRowView)bdsLTC[bdsLTC.Position])["MALTC"].ToString();
-                cmd.Add(new DeleteAction(bdsLTC));
+                cmd.Add(new DeleteAction(bdsLTC, true));
                 bdsLTC.RemoveCurrent();
                 sP_LOPTINCHITableAdapter.Connection.ConnectionString = Program.connstr;
                 this.sP_LOPTINCHITableAdapter.Update(this.dS.SP_LOPTINCHI);
@@ -288,13 +288,16 @@ namespace QLDSV_HTC.Forms
                 bdsLTC.ResetCurrentItem();
                 sP_LOPTINCHITableAdapter.Connection.ConnectionString = Program.connstr;
                 this.sP_LOPTINCHITableAdapter.Update(this.dS.SP_LOPTINCHI);
-                if (optionThem) cmd.Add(new InsertAction(bdsLTC));
+                TaiLTC();
+                bdsLTC.Position = bdsLTC.Find(
+                        new Key { PropertyName = "MAMH", Value = maMH },
+                        new Key { PropertyName = "NHOM", Value = nhom });
+                if (optionThem) cmd.Add(new InsertAction(bdsLTC, true));
                 else
                 {
                     object[] newData = (bdsLTC.Current as DataRowView).Row.ItemArray;
                     cmd.Add(new UpdateAction(bdsLTC, oldData, newData));
                 }
-                TaiLTC();
                 XtraMessageBox.Show("Đã ghi thông tin lớp tín chỉ vào cơ sở dữ liệu!", "Thông báo",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

@@ -181,15 +181,17 @@ namespace QLDSV_HTC.Forms
                 txtTenMH.Focus();
                 return;
             }
+            if (!Regex.IsMatch(tenMH, Utils.TEN_MH))
+            {
+                XtraMessageBox.Show("Tên môn học chỉ được chứa chữ cái có hoặc không dấu, số, khoảng cách " +
+                    "và một số ký tự đặc biệt như # + -",
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTenMH.Focus();
+                return;
+            }
             if (spinSoTietLT.Text.Trim() == "")
             {
                 XtraMessageBox.Show("Số tiết lý thuyết không được để trống!", "Lỗi",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (spinSoTietLT.Value < 0)
-            {
-                XtraMessageBox.Show("Số tiết lý thuyết không thể có giá trị âm!", "Lỗi",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -199,9 +201,10 @@ namespace QLDSV_HTC.Forms
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (spinSoTietTH.Value < 0)
+
+            if (spinSoTietLT.Value + spinSoTietTH.Value == 0)
             {
-                XtraMessageBox.Show("Số tiết thực hành không thể có giá trị âm!", "Lỗi",
+                XtraMessageBox.Show("Môn học không thể không có tiết học nào!", "Lỗi",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }

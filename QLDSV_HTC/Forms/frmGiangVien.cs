@@ -110,19 +110,26 @@ namespace QLDSV_HTC.Forms
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            string maGV = "";
             if (bdsLopTinChi.Count > 0)
             {
                 XtraMessageBox.Show("Không thể xóa giảng viên này vì đã có lớp tín chỉ do giảng viên này dạy!",
                     "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (XtraMessageBox.Show("Bạn có chắc muốn xóa giảng viên này không?", "Xác nhận",
-                        MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK) return;
 
+            string maGV = "";
             try
             {
                 maGV = ((DataRowView)bdsGiangVien[bdsGiangVien.Position])["MAGV"].ToString();
+                if (string.Equals(maGV, Program.username, StringComparison.OrdinalIgnoreCase))
+                {
+                    XtraMessageBox.Show("Bạn không thể xóa chính mình!", "Lỗi",
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (XtraMessageBox.Show("Bạn có chắc muốn xóa giảng viên này không?", "Xác nhận",
+                        MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK) return;
                 cmd.Add(new DeleteAction(bdsGiangVien));
                 bdsGiangVien.RemoveCurrent();
                 gIANGVIENTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -216,7 +223,7 @@ namespace QLDSV_HTC.Forms
                 txtHo.Focus();
                 return;
             }
-            if (!Regex.IsMatch(ho, Utils.CAC_TU_CO_DAU))
+            if (!Regex.IsMatch(ho, Utils.HO_NGUOI))
             {
                 XtraMessageBox.Show("Họ của giảng viên chỉ được bao gồm các chữ cái a-z, A-Z\n" +
                     "(có dấu hoặc không dấu) và khoảng trắng giữa các từ!",
@@ -232,7 +239,7 @@ namespace QLDSV_HTC.Forms
                 txtTen.Focus();
                 return;
             }
-            if (!Regex.IsMatch(ten, Utils.TU_CO_DAU))
+            if (!Regex.IsMatch(ten, Utils.TEN_NGUOI))
             {
                 XtraMessageBox.Show("Tên của giảng viên chỉ được bao gồm các chữ cái a-z, A-Z\n" +
                     "(có dấu hoặc không dấu) và chỉ gồm 1 từ duy nhất!",
@@ -267,6 +274,9 @@ namespace QLDSV_HTC.Forms
                 current["MAGV"] = maGV;
                 current["HO"] = ho;
                 current["TEN"] = ten;
+                current["HOCVI"] = txtHocVi.Text.Trim();
+                current["HOCHAM"] = txtHocHam.Text.Trim();
+                current["CHUYENMON"] = txtChuyenMon.Text.Trim();
                 gIANGVIENTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.gIANGVIENTableAdapter.Update(this.DS.GIANGVIEN);
                 if (optionThem) cmd.Add(new InsertAction(bdsGiangVien));

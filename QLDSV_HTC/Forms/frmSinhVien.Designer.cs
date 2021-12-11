@@ -648,7 +648,7 @@ namespace QLDSV_HTC.Forms
             this.colPHAI.AppearanceHeader.Options.UseFont = true;
             this.colPHAI.AppearanceHeader.Options.UseTextOptions = true;
             this.colPHAI.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colPHAI.Caption = "Phái";
+            this.colPHAI.Caption = "Phái (Nữ)";
             this.colPHAI.FieldName = "PHAI";
             this.colPHAI.Name = "colPHAI";
             this.colPHAI.Visible = true;
@@ -972,6 +972,7 @@ namespace QLDSV_HTC.Forms
             this.dateNgaySinh.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dateNgaySinh.Size = new System.Drawing.Size(120, 20);
             this.dateNgaySinh.TabIndex = 11;
+            this.dateNgaySinh.Enter += new System.EventHandler(this.dateNgaySinh_Enter);
             // 
             // txtDiaChi
             // 

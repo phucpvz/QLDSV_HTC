@@ -6,13 +6,17 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace QLDSV_HTC
+namespace QLDSV_HTC.Actions
 {
     public static class Utils
     {
-        public const string CAC_TU_CO_DAU = "^[a-zA-Z\\sàáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹý" +
+        public const string HO_NGUOI = "^[a-zA-Z\\sàáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹý" +
             "ÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ]+$";
-        public const string TU_CO_DAU = "^[a-zA-Zàáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹý" +
+        public const string TEN_NGUOI = "^[a-zA-Zàáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹý" +
+            "ÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ]+$";
+        public const string TEN_MH = "^[a-zA-Z0-9-+#\\sàáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹý" +
+            "ÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ]+$";
+        public const string TEN_LOP = "^[a-zA-Z0-9\\sàáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹý" +
             "ÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ]+$";
 
         public static List<string> LayDSNienKhoa()
@@ -43,6 +47,10 @@ namespace QLDSV_HTC
         public static string ChuanHoaTen(string ten)
         {
             ten = Regex.Replace(ten.Trim(), @"\s+", " ");
+            if (string.IsNullOrEmpty(ten))
+            {
+                return "";
+            }
             return ten.Substring(0, 1).ToUpper() + ten.Substring(1);
         }
 
@@ -142,7 +150,7 @@ namespace QLDSV_HTC
             }
             result = result.Trim();
             if (isNegative) result = "Âm " + result;
-            return result + (suffix ? " đồng chẵn" : "");
+            return result + (suffix ? " đồng" : "");
         }
     }
 }

@@ -550,7 +550,7 @@ namespace QLDSV_HTC.Forms
             // 
             this.colMAGV.AppearanceCell.Options.UseTextOptions = true;
             this.colMAGV.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colMAGV.AppearanceHeader.BackColor = System.Drawing.Color.Chocolate;
+            this.colMAGV.AppearanceHeader.BackColor = System.Drawing.Color.LightCoral;
             this.colMAGV.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colMAGV.AppearanceHeader.Options.UseBackColor = true;
             this.colMAGV.AppearanceHeader.Options.UseFont = true;
@@ -564,7 +564,7 @@ namespace QLDSV_HTC.Forms
             // 
             // colHO
             // 
-            this.colHO.AppearanceHeader.BackColor = System.Drawing.Color.Chocolate;
+            this.colHO.AppearanceHeader.BackColor = System.Drawing.Color.LightCoral;
             this.colHO.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colHO.AppearanceHeader.Options.UseBackColor = true;
             this.colHO.AppearanceHeader.Options.UseFont = true;
@@ -578,7 +578,7 @@ namespace QLDSV_HTC.Forms
             // 
             // colTEN
             // 
-            this.colTEN.AppearanceHeader.BackColor = System.Drawing.Color.Chocolate;
+            this.colTEN.AppearanceHeader.BackColor = System.Drawing.Color.LightCoral;
             this.colTEN.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colTEN.AppearanceHeader.Options.UseBackColor = true;
             this.colTEN.AppearanceHeader.Options.UseFont = true;
@@ -594,7 +594,7 @@ namespace QLDSV_HTC.Forms
             // 
             this.colHOCVI.AppearanceCell.Options.UseTextOptions = true;
             this.colHOCVI.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colHOCVI.AppearanceHeader.BackColor = System.Drawing.Color.Chocolate;
+            this.colHOCVI.AppearanceHeader.BackColor = System.Drawing.Color.LightCoral;
             this.colHOCVI.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colHOCVI.AppearanceHeader.Options.UseBackColor = true;
             this.colHOCVI.AppearanceHeader.Options.UseFont = true;
@@ -610,7 +610,7 @@ namespace QLDSV_HTC.Forms
             // 
             this.colHOCHAM.AppearanceCell.Options.UseTextOptions = true;
             this.colHOCHAM.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colHOCHAM.AppearanceHeader.BackColor = System.Drawing.Color.Chocolate;
+            this.colHOCHAM.AppearanceHeader.BackColor = System.Drawing.Color.LightCoral;
             this.colHOCHAM.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colHOCHAM.AppearanceHeader.Options.UseBackColor = true;
             this.colHOCHAM.AppearanceHeader.Options.UseFont = true;
@@ -624,7 +624,7 @@ namespace QLDSV_HTC.Forms
             // 
             // colCHUYENMON
             // 
-            this.colCHUYENMON.AppearanceHeader.BackColor = System.Drawing.Color.Chocolate;
+            this.colCHUYENMON.AppearanceHeader.BackColor = System.Drawing.Color.LightCoral;
             this.colCHUYENMON.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colCHUYENMON.AppearanceHeader.Options.UseBackColor = true;
             this.colCHUYENMON.AppearanceHeader.Options.UseFont = true;
@@ -640,7 +640,7 @@ namespace QLDSV_HTC.Forms
             // 
             this.colMAKHOA.AppearanceCell.Options.UseTextOptions = true;
             this.colMAKHOA.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colMAKHOA.AppearanceHeader.BackColor = System.Drawing.Color.Chocolate;
+            this.colMAKHOA.AppearanceHeader.BackColor = System.Drawing.Color.LightCoral;
             this.colMAKHOA.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colMAKHOA.AppearanceHeader.Options.UseBackColor = true;
             this.colMAKHOA.AppearanceHeader.Options.UseFont = true;

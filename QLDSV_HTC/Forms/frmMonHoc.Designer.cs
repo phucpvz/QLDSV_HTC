@@ -459,7 +459,7 @@ namespace QLDSV_HTC.Forms
             // 
             this.colMAMH.AppearanceCell.Options.UseTextOptions = true;
             this.colMAMH.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colMAMH.AppearanceHeader.BackColor = System.Drawing.Color.LightCoral;
+            this.colMAMH.AppearanceHeader.BackColor = System.Drawing.Color.Chocolate;
             this.colMAMH.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colMAMH.AppearanceHeader.Options.UseBackColor = true;
             this.colMAMH.AppearanceHeader.Options.UseFont = true;
@@ -475,7 +475,7 @@ namespace QLDSV_HTC.Forms
             // 
             this.colTENMH.AppearanceCell.Options.UseTextOptions = true;
             this.colTENMH.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.colTENMH.AppearanceHeader.BackColor = System.Drawing.Color.LightCoral;
+            this.colTENMH.AppearanceHeader.BackColor = System.Drawing.Color.Chocolate;
             this.colTENMH.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colTENMH.AppearanceHeader.Options.UseBackColor = true;
             this.colTENMH.AppearanceHeader.Options.UseFont = true;
@@ -491,7 +491,7 @@ namespace QLDSV_HTC.Forms
             // 
             this.colSOTIET_LT.AppearanceCell.Options.UseTextOptions = true;
             this.colSOTIET_LT.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colSOTIET_LT.AppearanceHeader.BackColor = System.Drawing.Color.LightCoral;
+            this.colSOTIET_LT.AppearanceHeader.BackColor = System.Drawing.Color.Chocolate;
             this.colSOTIET_LT.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colSOTIET_LT.AppearanceHeader.Options.UseBackColor = true;
             this.colSOTIET_LT.AppearanceHeader.Options.UseFont = true;
@@ -507,7 +507,7 @@ namespace QLDSV_HTC.Forms
             // 
             this.colSOTIET_TH.AppearanceCell.Options.UseTextOptions = true;
             this.colSOTIET_TH.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colSOTIET_TH.AppearanceHeader.BackColor = System.Drawing.Color.LightCoral;
+            this.colSOTIET_TH.AppearanceHeader.BackColor = System.Drawing.Color.Chocolate;
             this.colSOTIET_TH.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colSOTIET_TH.AppearanceHeader.Options.UseBackColor = true;
             this.colSOTIET_TH.AppearanceHeader.Options.UseFont = true;
@@ -582,6 +582,11 @@ namespace QLDSV_HTC.Forms
             0});
             this.spinSoTietLT.Properties.IsFloatValue = false;
             this.spinSoTietLT.Properties.Mask.EditMask = "N00";
+            this.spinSoTietLT.Properties.MaxValue = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.spinSoTietLT.Size = new System.Drawing.Size(100, 20);
             this.spinSoTietLT.TabIndex = 5;
             // 
@@ -609,6 +614,11 @@ namespace QLDSV_HTC.Forms
             0});
             this.spinSoTietTH.Properties.IsFloatValue = false;
             this.spinSoTietTH.Properties.Mask.EditMask = "N00";
+            this.spinSoTietTH.Properties.MaxValue = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.spinSoTietTH.Size = new System.Drawing.Size(100, 20);
             this.spinSoTietTH.TabIndex = 7;
             // 
@@ -700,8 +710,8 @@ namespace QLDSV_HTC.Forms
         private DevExpress.XtraEditors.TextEdit txtMaMH;
         private System.Windows.Forms.BindingSource bdsLopTinChi;
         private DSTableAdapters.LOPTINCHITableAdapter lOPTINCHITableAdapter;
-        private DevExpress.XtraEditors.SpinEdit spinSoTietLT;
         private DevExpress.XtraEditors.SpinEdit spinSoTietTH;
         private DevExpress.XtraBars.BarButtonItem btnRedo;
+        private DevExpress.XtraEditors.SpinEdit spinSoTietLT;
     }
 }

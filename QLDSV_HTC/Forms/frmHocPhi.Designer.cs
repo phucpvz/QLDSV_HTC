@@ -1054,8 +1054,10 @@ namespace QLDSV_HTC.Forms
             this.dateNgayDong.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dateNgayDong.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateNgayDong.Properties.Mask.EditMask = "dd/MM/yyyy";
+            this.dateNgayDong.Properties.MaxValue = new System.DateTime(((long)(0)));
             this.dateNgayDong.Size = new System.Drawing.Size(174, 20);
             this.dateNgayDong.TabIndex = 1;
+            this.dateNgayDong.Enter += new System.EventHandler(this.dateNgayDong_Enter);
             // 
             // frmHocPhi
             // 

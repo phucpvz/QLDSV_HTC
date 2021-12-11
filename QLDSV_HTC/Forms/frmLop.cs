@@ -198,6 +198,13 @@ namespace QLDSV_HTC.Forms
                 txtTenLop.Focus();
                 return;
             }
+            if (!Regex.IsMatch(tenLop, Utils.TEN_LOP))
+            {
+                XtraMessageBox.Show("Tên lớp chỉ được chứa chữ cái có hoặc không dấu, số và khoảng cách!",
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTenLop.Focus();
+                return;
+            }
             if (txtKhoaHoc.Text.Trim() == "")
             {
                 XtraMessageBox.Show("Khóa học không được để trống", "Lỗi",

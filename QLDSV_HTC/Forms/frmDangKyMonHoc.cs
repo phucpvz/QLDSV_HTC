@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using QLDSV_HTC.Actions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,32 +35,12 @@ namespace QLDSV_HTC.Forms
             gc_DS_LTC_DADK.DataSource = dt_DS_LTC_DADK;
         }
 
-        private List<string> LayDSNienKhoa()
-        {
-            List<string> dsNK = new List<string>();
-            for (int i = 2010; i < 2100; i++)
-            {
-                dsNK.Add(string.Format($"{i}-{i + 1}"));
-            }
-            return dsNK;
-        }
-
-        private List<int> LayDSHocKy()
-        {
-            List<int> dsHK = new List<int>();
-            for (int i = 1; i <= 4; i++)
-            {
-                dsHK.Add(i);
-            }
-            return dsHK;
-        }
-
-        private bool kiemTraMaLTCDaLuu(string maltc_xoa)
+        private bool kiemTraMaLTCDaLuu(string maLTC)
         {
             for (int i = 0; i < dt_maltc.Rows.Count; i++)
             {
-                string maltc = dt_maltc.Rows[i]["MALTC"].ToString();
-                if (maltc_xoa == maltc)
+                string maLTCDaLuu = dt_maltc.Rows[i]["MALTC"].ToString();
+                if (maLTC == maLTCDaLuu)
                 {
                     return true;
                 }
@@ -74,8 +55,8 @@ namespace QLDSV_HTC.Forms
             txtMaLop.Text = Program.mLop;
             txtMaKhoa.Text = Program.mKhoa == 0 ? "CNTT" : "VT";
 
-            cmbNK.DataSource = LayDSNienKhoa();
-            cmbHK.DataSource = LayDSHocKy();
+            cmbNK.DataSource = Utils.LayDSNienKhoa();
+            cmbHK.DataSource = Utils.LayDSHocKy();
         }
 
         private object[] AppendToArray(ref object[] arr, object o)
@@ -129,8 +110,19 @@ namespace QLDSV_HTC.Forms
                 XtraMessageBox.Show("Đã xảy ra lỗi khi tải lớp tín chỉ!\n" + ex.Message,
                      "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            KiemTra();
+        }
+
+        private void KiemTra()
+        {
             btnThemDK.Enabled = (bdsDSLTC.Count > 0);
-            btnXoaDK.Enabled = btnLuuDK.Enabled = (dt_DS_LTC_DADK.Rows.Count > 0);
+            btnLuuDK.Enabled = (dt_DS_LTC_DADK.Rows.Count > 0);
+            if (gv_DS_LTC_DADK.RowCount > 0)
+            {
+                string maltc_chon = dt_DS_LTC_DADK.Rows[gv_DS_LTC_DADK.GetSelectedRows()[0]]["MALTC"].ToString();
+                btnXoaDK.Enabled = !kiemTraMaLTCDaLuu(maltc_chon);
+            }
+            else btnXoaDK.Enabled = false;
         }
 
         private void cmbHK_SelectedIndexChanged(object sender, EventArgs e)
@@ -159,26 +151,15 @@ namespace QLDSV_HTC.Forms
             }
             object[] a = drv.Row.ItemArray;
             dt_DS_LTC_DADK.Rows.Add(AppendToArray(ref a, false));
-            btnXoaDK.Enabled = btnLuuDK.Enabled = true;
+            gv_DS_LTC_DADK.MoveLast();
+            KiemTra();
         }
 
         private void btnXoaDK_Click(object sender, EventArgs e)
         {
             string maltc_xoa = dt_DS_LTC_DADK.Rows[gv_DS_LTC_DADK.GetSelectedRows()[0]]["MALTC"].ToString();
-            if (kiemTraMaLTCDaLuu(maltc_xoa))
-            {
-                XtraMessageBox.Show($"Không thể xóa đăng ký này vì đăng ký này đã lưu trong cơ sở dữ liệu trước đó!\n" +
-                    "Vui lòng đánh dấu hủy đăng ký để thay thế!",
-                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                dt_DS_LTC_DADK.Rows.Remove(dt_DS_LTC_DADK.Select($"MALTC = '{maltc_xoa}'")[0]);
-                if (dt_DS_LTC_DADK.Rows.Count == 0)
-                {
-                    btnXoaDK.Enabled = btnLuuDK.Enabled = false;
-                }
-            }
+            dt_DS_LTC_DADK.Rows.Remove(dt_DS_LTC_DADK.Select($"MALTC = '{maltc_xoa}'")[0]);
+            KiemTra();
         }
 
         private void btnLuuDK_Click(object sender, EventArgs e)
@@ -220,6 +201,11 @@ namespace QLDSV_HTC.Forms
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Close();
+        }
+
+        private void gv_DS_LTC_DADK_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            KiemTra();
         }
     }
 }
