@@ -42,7 +42,17 @@ namespace QLDSV_HTC.Forms
         private void ChuyenTrangThaiDangCapNhat_CTDHP(bool flag)
         {
             btnTaiCTDHP.Enabled = btnThoat.Enabled = txtViTriCTDHP.Enabled = !flag;
-            btnThemCTDHP.Enabled = !flag && (bdsHocPhi.Count > 0);
+            bool coTheDongThem;
+            try
+            {
+                int soTienCanDong = int.Parse(gvHocPhi.GetRowCellValue(gvHocPhi.GetSelectedRows()[0], "SOTIENCANDONG").ToString());
+                coTheDongThem = (soTienCanDong > 0);
+            }
+            catch (Exception)
+            {
+                coTheDongThem = false;
+            }
+            btnThemCTDHP.Enabled = !flag && (bdsHocPhi.Count > 0) && coTheDongThem;
             btnXoaCTDHP.Enabled = btnSuaCTDHP.Enabled = !flag && (bdsCTDHP.Count > 0);
             btnGhiCTDHP.Enabled = btnHuyCTDHP.Enabled = flag;
             gbCTDHP.Enabled = flag;
@@ -272,6 +282,7 @@ namespace QLDSV_HTC.Forms
             viTriHocPhi = bdsHocPhi.Position;
             bdsCTDHP.AddNew();
             dateNgayDong.DateTime = System.DateTime.Today;
+            spinSoTienDong.Value = int.Parse(gvHocPhi.GetRowCellValue(gvHocPhi.GetSelectedRows()[0], "SOTIENCANDONG").ToString());
             ChuyenTrangThaiDangCapNhat_CTDHP(true);
         }
 
@@ -424,7 +435,7 @@ namespace QLDSV_HTC.Forms
 
         private void gvHocPhi_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            btnXoaCTDHP.Enabled = btnSuaCTDHP.Enabled = (bdsCTDHP.Count > 0);
+            ChuyenTrangThaiDangCapNhat_CTDHP(false);
         }
 
         private void dateNgayDong_Enter(object sender, EventArgs e)

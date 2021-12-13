@@ -202,9 +202,17 @@ namespace QLDSV_HTC.Forms
                 return;
             }
 
-            if (spinSoTietLT.Value + spinSoTietTH.Value == 0)
+            int tongSoTietHoc = (int)(spinSoTietLT.Value + spinSoTietTH.Value);
+            if (tongSoTietHoc == 0)
             {
                 XtraMessageBox.Show("Môn học không thể không có tiết học nào!", "Lỗi",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (tongSoTietHoc % 15 != 0)
+            {
+                XtraMessageBox.Show("Tổng số tiết học phải là bội số của 15 (1 tín chỉ = 15 tiết học)!\n" +
+                    $"Tổng số tiết hiện tại là: {tongSoTietHoc}", "Lỗi",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }

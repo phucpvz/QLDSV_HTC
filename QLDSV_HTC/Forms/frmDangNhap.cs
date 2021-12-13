@@ -158,11 +158,15 @@ namespace QLDSV_HTC.Forms
             if (rbtnGV.Checked)
             {
                 Program.bds_dspm.Filter = "TENKHOA LIKE '%'";
+                lblLogin.Text = "Login:";
             }
             else
             {
                 Program.bds_dspm.Filter = "TENKHOA LIKE 'Khoa%'";
+                lblLogin.Text = "Mã sinh viên:";
             }
+            lblLogin.Location = new Point
+                (lblPassword.Location.X + lblPassword.Width - lblLogin.Width, lblLogin.Location.Y);
         }
     }
 }

@@ -461,9 +461,6 @@ namespace QLDSV_HTC
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem btnTaoTaiKhoan;
         private System.Windows.Forms.StatusStrip statusStrip;
-        public System.Windows.Forms.ToolStripStatusLabel lblMAGV;
-        public System.Windows.Forms.ToolStripStatusLabel lblHOTEN;
-        public System.Windows.Forms.ToolStripStatusLabel lblNHOM;
         private DevExpress.XtraBars.BarButtonItem btnLop;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbpQuanLy;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
@@ -492,6 +489,9 @@ namespace QLDSV_HTC
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgBaoCaoDiem;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgBaoCaoHocPhi;
         private DevExpress.XtraBars.BarButtonItem btnChangePassword;
+        private System.Windows.Forms.ToolStripStatusLabel lblMAGV;
+        private System.Windows.Forms.ToolStripStatusLabel lblHOTEN;
+        private System.Windows.Forms.ToolStripStatusLabel lblNHOM;
     }
 }
 

@@ -237,13 +237,13 @@ namespace QLDSV_HTC.Forms
                 catch
                 {
                     e.Valid = false;
-                    e.ErrorText = "Điểm giữa kỳ phải là số thực từ 0 đến 10!";
+                    e.ErrorText = "Điểm cuối kỳ phải là số thực từ 0 đến 10!";
                     return;
                 }
                 if (diem < 0 || diem > 10)
                 {
                     e.Valid = false;
-                    e.ErrorText = "Điểm giữa kỳ phải là số thực từ 0 đến 10!";
+                    e.ErrorText = "Điểm cuối kỳ phải là số thực từ 0 đến 10!";
                 }
                 e.Value = Math.Round(diem * 2, MidpointRounding.AwayFromZero) / 2;
             }

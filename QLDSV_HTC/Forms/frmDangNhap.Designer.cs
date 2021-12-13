@@ -42,8 +42,8 @@ namespace QLDSV_HTC.Forms
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.txtLogin = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.lblLogin = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,8 +71,8 @@ namespace QLDSV_HTC.Forms
             this.groupBox1.Controls.Add(this.btnDangNhap);
             this.groupBox1.Controls.Add(this.txtPass);
             this.groupBox1.Controls.Add(this.txtLogin);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.lblPassword);
+            this.groupBox1.Controls.Add(this.lblLogin);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(444, 81);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -198,25 +198,25 @@ namespace QLDSV_HTC.Forms
             this.txtLogin.TabIndex = 1;
             this.txtLogin.Text = "ptl";
             // 
-            // label3
+            // lblPassword
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(22, 126);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 19);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Mật khẩu:";
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Location = new System.Drawing.Point(22, 126);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(80, 19);
+            this.lblPassword.TabIndex = 2;
+            this.lblPassword.Text = "Mật khẩu:";
             // 
-            // label2
+            // lblLogin
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 97);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 19);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Tài khoản:";
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.Location = new System.Drawing.Point(22, 97);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(81, 19);
+            this.lblLogin.TabIndex = 1;
+            this.lblLogin.Text = "Tài khoản:";
             // 
             // frmDangNhap
             // 
@@ -227,7 +227,7 @@ namespace QLDSV_HTC.Forms
             this.ClientSize = new System.Drawing.Size(876, 587);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
-            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("frmDangNhap.IconOptions.Image")));
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("lblPassword.IconOptions.Image")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmDangNhap";
             this.Text = "Đăng nhập";
@@ -249,8 +249,8 @@ namespace QLDSV_HTC.Forms
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.TextBox txtLogin;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RadioButton rbtnSV;

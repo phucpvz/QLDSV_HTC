@@ -569,6 +569,7 @@ namespace QLDSV_HTC.Forms
             this.gridColumn1.FieldName = "MASV";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.OptionsColumn.TabStop = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
             this.gridColumn1.Width = 168;
@@ -585,6 +586,7 @@ namespace QLDSV_HTC.Forms
             this.gridColumn2.FieldName = "HOTENSV";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.AllowEdit = false;
+            this.gridColumn2.OptionsColumn.TabStop = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
             this.gridColumn2.Width = 273;
@@ -654,6 +656,7 @@ namespace QLDSV_HTC.Forms
             this.gridColumn6.FieldName = "DIEM_HM";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.AllowEdit = false;
+            this.gridColumn6.OptionsColumn.TabStop = false;
             this.gridColumn6.UnboundExpression = "Round([DIEM_CC] * 0.1 + [DIEM_GK] * 0.3 + [DIEM_CK] * 0.6, 1)";
             this.gridColumn6.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.gridColumn6.Visible = true;

@@ -691,7 +691,7 @@ namespace QLDSV_HTC.Forms
             this.gbHocPhi.Name = "gbHocPhi";
             this.gbHocPhi.Size = new System.Drawing.Size(1511, 89);
             this.gbHocPhi.TabIndex = 39;
-            this.gbHocPhi.Text = "Thông tin đóng học phí";
+            this.gbHocPhi.Text = "Thông tin học phí";
             // 
             // cmbNienKhoa
             // 
