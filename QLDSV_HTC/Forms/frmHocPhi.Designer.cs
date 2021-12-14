@@ -1035,6 +1035,11 @@ namespace QLDSV_HTC.Forms
             0});
             this.spinSoTienDong.Properties.IsFloatValue = false;
             this.spinSoTienDong.Properties.Mask.EditMask = "N00";
+            this.spinSoTienDong.Properties.MaxValue = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
             this.spinSoTienDong.Size = new System.Drawing.Size(152, 20);
             this.spinSoTienDong.TabIndex = 3;
             // 

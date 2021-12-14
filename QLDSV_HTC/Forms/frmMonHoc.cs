@@ -98,6 +98,7 @@ namespace QLDSV_HTC.Forms
             {
                 XtraMessageBox.Show("Lỗi xóa môn học! Bạn hãy xóa lại!\n" + ex.Message, "Lỗi",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmd.RemoveLastUndoNode();
                 this.mONHOCTableAdapter.Fill(this.DS.MONHOC);
                 bdsMonHoc.Position = bdsMonHoc.Find("MAMH", maMH);
                 return;

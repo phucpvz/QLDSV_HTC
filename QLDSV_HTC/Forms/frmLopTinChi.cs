@@ -154,8 +154,9 @@ namespace QLDSV_HTC.Forms
             }
             catch (Exception ex)
             {
-                XtraMessageBox.Show("Lỗi xóa lớp tín chỉ! Bạn hãy xóa lại!\n" + ex.Message, "Lỗi",
+                XtraMessageBox.Show("Không xóa được lớp tín chỉ!\n" + ex.Message, "Lỗi",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmd.RemoveLastUndoNode();
                 TaiLTC();
                 int pos = bdsLTC.Find("MALTC", maltc);
                 if (pos > -1) bdsLTC.Position = pos;

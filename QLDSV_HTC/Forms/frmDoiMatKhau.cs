@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using QLDSV_HTC.Actions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -41,11 +43,25 @@ namespace QLDSV_HTC.Forms
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (!Regex.IsMatch(oldPassword, Utils.MAT_KHAU))
+            {
+                XtraMessageBox.Show("Mật khẩu cũ chứa ký tự không hợp lệ!\n" +
+                    "Mật khẩu chỉ được chứa chữ cái không dấu, chữ số và một trong các ký tự sau: .,@_-", 
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             string newPassword = txtNewPassword.Text.Trim();
             if (string.IsNullOrEmpty(newPassword))
             {
                 XtraMessageBox.Show("Mật khẩu mới không được để trống!", "Lỗi",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!Regex.IsMatch(newPassword, Utils.MAT_KHAU))
+            {
+                XtraMessageBox.Show("Mật khẩu mới chứa ký tự không hợp lệ!\n" +
+                    "Mật khẩu chỉ được chứa chữ cái không dấu, chữ số và một trong các ký tự sau: .,@_-", 
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             string confirm = txtConfirm.Text.Trim();

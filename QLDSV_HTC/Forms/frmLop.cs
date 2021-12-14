@@ -116,6 +116,7 @@ namespace QLDSV_HTC.Forms
             {
                 XtraMessageBox.Show("Lỗi xóa lớp! Bạn hãy xóa lại!\n" + ex.Message, "Lỗi",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmd.RemoveLastUndoNode();
                 this.lOPTableAdapter.Fill(this.DS.LOP);
                 int pos = bdsLop.Find("MALOP", malop);
                 if (pos > -1) bdsLop.Position = pos;

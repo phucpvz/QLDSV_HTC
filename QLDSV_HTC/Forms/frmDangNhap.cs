@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using QLDSV_HTC.Actions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -78,6 +80,13 @@ namespace QLDSV_HTC.Forms
             if (txtLogin.Text.Trim() == "" || txtPass.Text.Trim() == "")
             {
                 XtraMessageBox.Show("Login name và mật khẩu không được để trống", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!Regex.IsMatch(txtPass.Text, Utils.MAT_KHAU))
+            {
+                XtraMessageBox.Show("Mật khẩu chứa ký tự không hợp lệ!\n" +
+                    "Mật khẩu chỉ được chứa chữ cái không dấu, chữ số và một trong các ký tự sau: .,@_-", 
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

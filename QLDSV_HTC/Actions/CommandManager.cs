@@ -30,6 +30,11 @@ namespace QLDSV_HTC.Actions
             btnRedo.Enabled = redoStack.Count > 0;
         }
 
+        public Action RemoveLastUndoNode()
+        {
+            return undoStack.Pop();
+        }
+
         public Action GetLastUndoNode()
         {
             return undoStack.Peek();

@@ -141,6 +141,7 @@ namespace QLDSV_HTC.Forms
             {
                 XtraMessageBox.Show("Lỗi xóa giảng viên! Bạn hãy xóa lại!\n" + ex.Message, "Lỗi",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmd.RemoveLastUndoNode();
                 this.gIANGVIENTableAdapter.Fill(this.DS.GIANGVIEN);
                 int pos = bdsGiangVien.Find("MAGV", maGV);
                 if (pos > -1) 

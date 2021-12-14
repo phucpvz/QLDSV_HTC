@@ -138,6 +138,7 @@ namespace QLDSV_HTC.Forms
             {
                 XtraMessageBox.Show("Lỗi xóa sinh viên! Bạn hãy xóa lại!\n" + ex.Message, "Lỗi",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmd.RemoveLastUndoNode();
                 this.sINHVIENTableAdapter.Fill(this.DS.SINHVIEN);
                 int pos = bdsSinhVien.Find("MASV", maSV);
                 if (pos > -1)
@@ -289,7 +290,7 @@ namespace QLDSV_HTC.Forms
                 }
                 XtraMessageBox.Show("Đã ghi thông tin sinh viên vào cơ sở dữ liệu!", "Thông báo",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                DatMatKhau("123456");
+                if (optionThem) DatMatKhau("123456");
             }
             catch (Exception ex)
             {

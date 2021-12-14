@@ -144,6 +144,7 @@ namespace QLDSV_HTC
             this.btnGiangVien.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGiangVien.ImageOptions.Image")));
             this.btnGiangVien.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnGiangVien.ImageOptions.LargeImage")));
             this.btnGiangVien.Name = "btnGiangVien";
+            this.btnGiangVien.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnGiangVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGiangVien_ItemClick);
             // 
             // btnLopTinChi
@@ -275,6 +276,7 @@ namespace QLDSV_HTC
             // 
             // ribbonPageGroup2
             // 
+            this.ribbonPageGroup2.AllowTextClipping = false;
             this.ribbonPageGroup2.ItemLinks.Add(this.btnMonHoc);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnGiangVien);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";

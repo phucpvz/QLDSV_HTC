@@ -52,7 +52,7 @@ namespace QLDSV_HTC.Forms
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.LightBlue;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(447, 45);
+            this.label4.Location = new System.Drawing.Point(568, 46);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(377, 22);
             this.label4.TabIndex = 5;
@@ -74,7 +74,7 @@ namespace QLDSV_HTC.Forms
             this.groupBox1.Controls.Add(this.lblPassword);
             this.groupBox1.Controls.Add(this.lblLogin);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(444, 81);
+            this.groupBox1.Location = new System.Drawing.Point(572, 85);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -156,10 +156,10 @@ namespace QLDSV_HTC.Forms
             this.btnThoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnThoat.Location = new System.Drawing.Point(198, 221);
+            this.btnThoat.Location = new System.Drawing.Point(198, 213);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(107, 28);
+            this.btnThoat.Size = new System.Drawing.Size(107, 36);
             this.btnThoat.TabIndex = 5;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = false;
@@ -168,10 +168,10 @@ namespace QLDSV_HTC.Forms
             // btnDangNhap
             // 
             this.btnDangNhap.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnDangNhap.Location = new System.Drawing.Point(58, 221);
+            this.btnDangNhap.Location = new System.Drawing.Point(58, 213);
             this.btnDangNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(107, 28);
+            this.btnDangNhap.Size = new System.Drawing.Size(107, 36);
             this.btnDangNhap.TabIndex = 4;
             this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.UseVisualStyleBackColor = false;
@@ -224,10 +224,10 @@ namespace QLDSV_HTC.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnThoat;
-            this.ClientSize = new System.Drawing.Size(876, 587);
+            this.ClientSize = new System.Drawing.Size(1046, 589);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
-            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("lblPassword.IconOptions.Image")));
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("frmDangNhap.IconOptions.Image")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmDangNhap";
             this.Text = "Đăng nhập";
