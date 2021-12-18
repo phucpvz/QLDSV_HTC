@@ -73,6 +73,8 @@ namespace QLDSV_HTC.Forms
 
         private void frmLopTinChi_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dS.HOTENGIANGVIEN' table. You can move, or remove it, as needed.
+            this.hOTENGIANGVIENTableAdapter.Fill(this.dS.HOTENGIANGVIEN);
             dS.EnforceConstraints = false;
             //TaiLTC();
             gIANGVIENTableAdapter.Connection.ConnectionString = Program.connstr;

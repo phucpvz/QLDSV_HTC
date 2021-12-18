@@ -53,6 +53,7 @@ namespace QLDSV_HTC.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.txtLogin = new DevExpress.XtraEditors.TextEdit();
             this.gIANGVIENTableAdapter = new QLDSV_HTC.DS_HOCPHITableAdapters.GIANGVIENTableAdapter();
+            this.hOTENGIANGVIENTableAdapter = new QLDSV_HTC.DS_HOCPHITableAdapters.HOTENGIANGVIENTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.pnlKhoa)).BeginInit();
             this.pnlKhoa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -189,12 +190,11 @@ namespace QLDSV_HTC.Forms
             this.lookUpGV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpGV.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAGV", "MAGV", 51, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAKHOA", "MAKHOA", 53, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("HO", "HO", 25, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TEN", "TEN", 29, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAGV", "Mã giảng viên", 51, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("HOTENGV", "Họ tên giảng viên", 57, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAKHOA", "Mã khoa", 53, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lookUpGV.Properties.DataSource = this.bdsGiangVien;
-            this.lookUpGV.Properties.DisplayMember = "MAGV";
+            this.lookUpGV.Properties.DisplayMember = "HOTENGV";
             this.lookUpGV.Properties.NullText = "Chọn giảng viên...";
             this.lookUpGV.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoSearch;
             this.lookUpGV.Properties.ValueMember = "MAGV";
@@ -203,7 +203,7 @@ namespace QLDSV_HTC.Forms
             // 
             // bdsGiangVien
             // 
-            this.bdsGiangVien.DataMember = "GIANGVIEN";
+            this.bdsGiangVien.DataMember = "HOTENGIANGVIEN";
             this.bdsGiangVien.DataSource = this.DS_HOCPHI;
             // 
             // DS_HOCPHI
@@ -278,6 +278,10 @@ namespace QLDSV_HTC.Forms
             // 
             this.gIANGVIENTableAdapter.ClearBeforeFill = true;
             // 
+            // hOTENGIANGVIENTableAdapter
+            // 
+            this.hOTENGIANGVIENTableAdapter.ClearBeforeFill = true;
+            // 
             // frmTaoLogin
             // 
             this.AcceptButton = this.btnSignUp;
@@ -344,5 +348,6 @@ namespace QLDSV_HTC.Forms
         private System.Windows.Forms.CheckBox ckbShowPass;
         private System.Windows.Forms.ComboBox cmbKhoa;
         private System.Windows.Forms.Label lblKhoa;
+        private DS_HOCPHITableAdapters.HOTENGIANGVIENTableAdapter hOTENGIANGVIENTableAdapter;
     }
 }

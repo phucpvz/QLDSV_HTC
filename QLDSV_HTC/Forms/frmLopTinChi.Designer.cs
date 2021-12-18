@@ -94,6 +94,7 @@ namespace QLDSV_HTC.Forms
             this.bdsGiangVien = new System.Windows.Forms.BindingSource(this.components);
             this.mONHOCTableAdapter = new QLDSV_HTC.DSTableAdapters.MONHOCTableAdapter();
             this.gIANGVIENTableAdapter = new QLDSV_HTC.DSTableAdapters.GIANGVIENTableAdapter();
+            this.hOTENGIANGVIENTableAdapter = new QLDSV_HTC.DSTableAdapters.HOTENGIANGVIENTableAdapter();
             mAKHOALabel = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             nHOMLabel = new System.Windows.Forms.Label();
@@ -800,8 +801,8 @@ namespace QLDSV_HTC.Forms
             this.lkupMH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkupMH.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAMH", "MAMH", 53, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TENMH", "TENMH", 44, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAMH", "Mã môn học", 53, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TENMH", "Tên môn học", 44, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lkupMH.Properties.DataSource = this.bdsMonHoc;
             this.lkupMH.Properties.DisplayMember = "TENMH";
             this.lkupMH.Properties.NullText = "Chọn một môn học ...";
@@ -833,12 +834,11 @@ namespace QLDSV_HTC.Forms
             this.lkupGV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkupGV.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAGV", "MAGV", 51, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAKHOA", "MAKHOA", 53, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("HO", "HO", 25, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TEN", "TEN", 29, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAGV", "Mã giảng viên", 51, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("HOTENGV", "Họ tên giảng viên", 57, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAKHOA", "Mã khoa", 53, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lkupGV.Properties.DataSource = this.bdsGiangVien;
-            this.lkupGV.Properties.DisplayMember = "MAGV";
+            this.lkupGV.Properties.DisplayMember = "HOTENGV";
             this.lkupGV.Properties.NullText = "Chọn giảng viên...";
             this.lkupGV.Properties.PopupSizeable = false;
             this.lkupGV.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoSearch;
@@ -848,7 +848,7 @@ namespace QLDSV_HTC.Forms
             // 
             // bdsGiangVien
             // 
-            this.bdsGiangVien.DataMember = "GIANGVIEN";
+            this.bdsGiangVien.DataMember = "HOTENGIANGVIEN";
             this.bdsGiangVien.DataSource = this.dS;
             // 
             // mONHOCTableAdapter
@@ -858,6 +858,10 @@ namespace QLDSV_HTC.Forms
             // gIANGVIENTableAdapter
             // 
             this.gIANGVIENTableAdapter.ClearBeforeFill = true;
+            // 
+            // hOTENGIANGVIENTableAdapter
+            // 
+            this.hOTENGIANGVIENTableAdapter.ClearBeforeFill = true;
             // 
             // frmLopTinChi
             // 
@@ -962,5 +966,6 @@ namespace QLDSV_HTC.Forms
         private DSTableAdapters.GIANGVIENTableAdapter gIANGVIENTableAdapter;
         private DevExpress.XtraBars.BarButtonItem btnRedo;
         private DevExpress.XtraEditors.LookUpEdit lkupGV;
+        private DSTableAdapters.HOTENGIANGVIENTableAdapter hOTENGIANGVIENTableAdapter;
     }
 }

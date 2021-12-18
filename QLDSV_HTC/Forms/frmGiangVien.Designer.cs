@@ -168,9 +168,9 @@ namespace QLDSV_HTC.Forms
             mAKHOALabel.AutoSize = true;
             mAKHOALabel.Location = new System.Drawing.Point(680, 56);
             mAKHOALabel.Name = "mAKHOALabel";
-            mAKHOALabel.Size = new System.Drawing.Size(54, 13);
+            mAKHOALabel.Size = new System.Drawing.Size(51, 13);
             mAKHOALabel.TabIndex = 2;
-            mAKHOALabel.Text = "MAKHOA:";
+            mAKHOALabel.Text = "Mã khoa:";
             // 
             // mAGVLabel
             // 

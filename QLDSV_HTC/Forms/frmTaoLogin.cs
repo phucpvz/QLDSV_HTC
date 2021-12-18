@@ -21,6 +21,8 @@ namespace QLDSV_HTC.Forms
 
         private void frmTaoTaiKhoan_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'DS_HOCPHI.HOTENGIANGVIEN' table. You can move, or remove it, as needed.
+            this.hOTENGIANGVIENTableAdapter.Fill(this.DS_HOCPHI.HOTENGIANGVIEN);
             DS_HOCPHI.EnforceConstraints = false;
             gIANGVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             this.gIANGVIENTableAdapter.Fill(this.DS_HOCPHI.GIANGVIEN);
