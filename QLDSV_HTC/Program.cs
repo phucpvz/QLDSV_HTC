@@ -30,7 +30,7 @@ namespace QLDSV_HTC
 
         public static string database = "QLDSV_TC";
         public static string remoteLogin = "HTKN";
-        public static string remotePassword = "123";
+        public static string remotePassword = "123456";
         public static string mLoginDN = "";
         public static string passwordDN = "";
 

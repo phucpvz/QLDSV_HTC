@@ -74,14 +74,14 @@ namespace QLDSV_HTC.Reports
             string maLop = lkupLop.EditValue.ToString();
             string tenLop = (bdsLop[bdsLop.Position] as DataRowView)["TENLOP"].ToString();
             string khoaHoc = (bdsLop[bdsLop.Position] as DataRowView)["KHOAHOC"].ToString();
-            string maKhoa = (bdsLop[bdsLop.Position] as DataRowView)["MAKHOA"].ToString();
 
             Xrpt_BangDiemTongKet rpt =
                 new Xrpt_BangDiemTongKet(maLop);
 
             rpt.lblLop.Text = "LỚP: " + tenLop;
             rpt.lblKhoaHoc.Text = "KHÓA HỌC: " + khoaHoc;
-            rpt.lblKhoa.Text = "KHOA: " + (maKhoa == "CNTT" ? "CÔNG NGHỆ THÔNG TIN" : "VIỄN THÔNG");
+            rpt.lblKhoa.Text = "KHOA: " +
+                (cmbKhoa.SelectedIndex == 0 ? "CÔNG NGHỆ THÔNG TIN" : "VIỄN THÔNG");
 
             ReportPrintTool print = new ReportPrintTool(rpt);
             print.ShowPreviewDialog();

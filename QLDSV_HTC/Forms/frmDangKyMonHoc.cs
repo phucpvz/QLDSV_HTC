@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using QLDSV_HTC.Actions;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace QLDSV_HTC.Forms
     public partial class frmDangKyMonHoc : DevExpress.XtraEditors.XtraForm
     {
         private DataTable dt_maltc;
+        private DataTable dt_mamh_dacodiem;
         private DataTable dt_DS_LTC_DADK;
 
         public frmDangKyMonHoc()
@@ -33,6 +35,8 @@ namespace QLDSV_HTC.Forms
             dt_DS_LTC_DADK.Columns.Add("SOSVDADANGKY", typeof(int));
             dt_DS_LTC_DADK.Columns.Add("HUYDANGKY", typeof(bool));
             gc_DS_LTC_DADK.DataSource = dt_DS_LTC_DADK;
+
+            dt_mamh_dacodiem = new DataTable();
         }
 
         private bool kiemTraMaLTCDaLuu(string maLTC)
@@ -41,6 +45,19 @@ namespace QLDSV_HTC.Forms
             {
                 string maLTCDaLuu = dt_maltc.Rows[i]["MALTC"].ToString();
                 if (maLTC == maLTCDaLuu)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool kiemTraMaMHDaCoDiem(string maMH)
+        {
+            for (int i = 0; i < dt_mamh_dacodiem.Rows.Count; i++)
+            {
+                string maMHDaCoDiem = dt_mamh_dacodiem.Rows[i]["MAMH"].ToString().Trim();
+                if (maMH == maMHDaCoDiem)
                 {
                     return true;
                 }
@@ -104,6 +121,12 @@ namespace QLDSV_HTC.Forms
                         }
                     }
                 }
+
+                if (dt_mamh_dacodiem == null) return;
+                dt_mamh_dacodiem.Rows.Clear();
+                string strLenh2 = $"EXEC SP_LAY_DS_MAMH_DACODIEM " +
+                    $"'{cmbNK.Text}', {int.Parse(cmbHK.Text)}, '{Program.username}'";
+                dt_mamh_dacodiem = Program.ExecSqlDataTable(strLenh2);
             }
             catch (Exception ex)
             {
@@ -206,6 +229,28 @@ namespace QLDSV_HTC.Forms
         private void gv_DS_LTC_DADK_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             KiemTra();
+        }
+
+        private void gv_DS_LTC_DADK_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (view.FocusedColumn.FieldName == "HUYDANGKY")
+            {
+                bool huyDangKy = (bool)e.Value;
+                if (!huyDangKy)
+                {
+                    return;
+                }
+                string maMH_muonHuy = dt_DS_LTC_DADK.Rows[gv_DS_LTC_DADK.GetSelectedRows()[0]]["MAMH"].ToString().Trim();
+                if (kiemTraMaMHDaCoDiem(maMH_muonHuy))
+                {
+                    XtraMessageBox.Show($"Bạn không thể hủy đăng ký lớp tín chỉ có mã môn học là '{maMH_muonHuy}' " +
+                        "vì đã có lớp tín chỉ với mã môn học này mà bạn đã có điểm trong niên khóa - học kỳ này!",
+                   "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    e.Value = false;
+                    return;
+                }
+            }
         }
     }
 }

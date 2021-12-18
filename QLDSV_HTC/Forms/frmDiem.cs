@@ -200,6 +200,7 @@ namespace QLDSV_HTC.Forms
                 {
                     e.Valid = false;
                     e.ErrorText = "Điểm chuyên cần phải là số nguyên từ 0 đến 10!";
+                    return;
                 }
             }
             else if (view.FocusedColumn.FieldName == "DIEM_GK")
@@ -244,6 +245,7 @@ namespace QLDSV_HTC.Forms
                 {
                     e.Valid = false;
                     e.ErrorText = "Điểm cuối kỳ phải là số thực từ 0 đến 10!";
+                    return;
                 }
                 e.Value = Math.Round(diem * 2, MidpointRounding.AwayFromZero) / 2;
             }
