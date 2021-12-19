@@ -121,7 +121,7 @@ namespace QLDSV_HTC.Forms
             para.TypeName = "dbo.TYPE_DANGKY";
             para.ParameterName = "@DIEMTHI";
             para.Value = dt;
-            Program.KetNoi();
+            if (Program.KetNoi() == 0) return;
 
             SqlCommand Sqlcmd = new SqlCommand("SP_UPDATE_DIEM", Program.conn);
             Sqlcmd.Parameters.Clear();

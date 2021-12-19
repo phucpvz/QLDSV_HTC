@@ -201,7 +201,7 @@ namespace QLDSV_HTC.Forms
             para.TypeName = "dbo.TYPE_SV_DANGKY";
             para.ParameterName = "@DSDANGKY";
             para.Value = dt;
-            Program.KetNoi();
+            if (Program.KetNoi() == 0) return;
 
             SqlCommand Sqlcmd = new SqlCommand("SP_UPDATE_DANGKY", Program.conn);
             Sqlcmd.Parameters.Clear();
@@ -237,10 +237,7 @@ namespace QLDSV_HTC.Forms
             if (view.FocusedColumn.FieldName == "HUYDANGKY")
             {
                 bool huyDangKy = (bool)e.Value;
-                if (!huyDangKy)
-                {
-                    return;
-                }
+                if (!huyDangKy) return;
                 string maMH_muonHuy = dt_DS_LTC_DADK.Rows[gv_DS_LTC_DADK.GetSelectedRows()[0]]["MAMH"].ToString().Trim();
                 if (kiemTraMaMHDaCoDiem(maMH_muonHuy))
                 {

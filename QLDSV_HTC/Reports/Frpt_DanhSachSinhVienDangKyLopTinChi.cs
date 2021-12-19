@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
+using QLDSV_HTC.Actions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,26 +19,6 @@ namespace QLDSV_HTC.Reports
         public Frpt_DanhSachSinhVienDangKyLopTinChi()
         {
             InitializeComponent();
-        }
-
-        private List<string> LayDSNienKhoa()
-        {
-            List<string> dsNK = new List<string>();
-            for (int i = 2010; i < 2100; i++)
-            {
-                dsNK.Add(string.Format($"{i}-{i + 1}"));
-            }
-            return dsNK;
-        }
-
-        private List<int> LayDSHocKy()
-        {
-            List<int> dsHK = new List<int>();
-            for (int i = 1; i <= 4; i++)
-            {
-                dsHK.Add(i);
-            }
-            return dsHK;
         }
 
         private List<int> LayDSNhom()
@@ -61,8 +42,8 @@ namespace QLDSV_HTC.Reports
                 cmbKhoa.Enabled = true;
             else
                 cmbKhoa.Enabled = false;
-            cmbNK.DataSource = LayDSNienKhoa();
-            cmbHK.DataSource = LayDSHocKy();
+            cmbNK.DataSource = Utils.LayDSNienKhoa();
+            cmbHK.DataSource = Utils.LayDSHocKy();
             cmbNhom.DataSource = LayDSNhom();
         }
 

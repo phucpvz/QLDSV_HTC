@@ -49,6 +49,8 @@ namespace QLDSV_HTC.Reports
             this.pageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.pageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.lblNienKhoa = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblHocKy = new DevExpress.XtraReports.UI.XRLabel();
             this.lblMaLop = new DevExpress.XtraReports.UI.XRLabel();
             this.lblKhoa = new DevExpress.XtraReports.UI.XRLabel();
             this.label1 = new DevExpress.XtraReports.UI.XRLabel();
@@ -73,8 +75,6 @@ namespace QLDSV_HTC.Reports
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.calTongSoTienDaDong = new DevExpress.XtraReports.UI.CalculatedField();
-            this.lblNienKhoa = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblHocKy = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -191,6 +191,28 @@ namespace QLDSV_HTC.Reports
             this.label1});
             this.ReportHeader.HeightF = 148.5417F;
             this.ReportHeader.Name = "ReportHeader";
+            // 
+            // lblNienKhoa
+            // 
+            this.lblNienKhoa.LocationFloat = new DevExpress.Utils.PointFloat(177.2811F, 115.5416F);
+            this.lblNienKhoa.Multiline = true;
+            this.lblNienKhoa.Name = "lblNienKhoa";
+            this.lblNienKhoa.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblNienKhoa.SizeF = new System.Drawing.SizeF(164.5833F, 23F);
+            this.lblNienKhoa.StylePriority.UseTextAlignment = false;
+            this.lblNienKhoa.Text = "Niên khóa: ...";
+            this.lblNienKhoa.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // lblHocKy
+            // 
+            this.lblHocKy.LocationFloat = new DevExpress.Utils.PointFloat(371.031F, 115.5416F);
+            this.lblHocKy.Multiline = true;
+            this.lblHocKy.Name = "lblHocKy";
+            this.lblHocKy.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblHocKy.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.lblHocKy.StylePriority.UseTextAlignment = false;
+            this.lblHocKy.Text = "Học kỳ: ...";
+            this.lblHocKy.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // lblMaLop
             // 
@@ -502,28 +524,6 @@ namespace QLDSV_HTC.Reports
             this.calTongSoTienDaDong.DataMember = "SP_REPORT_DanhSachDongHocPhiLop";
             this.calTongSoTienDaDong.Expression = "Sum([SOTIENDADONG])";
             this.calTongSoTienDaDong.Name = "calTongSoTienDaDong";
-            // 
-            // lblNienKhoa
-            // 
-            this.lblNienKhoa.LocationFloat = new DevExpress.Utils.PointFloat(177.2811F, 115.5416F);
-            this.lblNienKhoa.Multiline = true;
-            this.lblNienKhoa.Name = "lblNienKhoa";
-            this.lblNienKhoa.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblNienKhoa.SizeF = new System.Drawing.SizeF(164.5833F, 23F);
-            this.lblNienKhoa.StylePriority.UseTextAlignment = false;
-            this.lblNienKhoa.Text = "Niên khóa: ...";
-            this.lblNienKhoa.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            // 
-            // lblHocKy
-            // 
-            this.lblHocKy.LocationFloat = new DevExpress.Utils.PointFloat(371.031F, 115.5416F);
-            this.lblHocKy.Multiline = true;
-            this.lblHocKy.Name = "lblHocKy";
-            this.lblHocKy.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblHocKy.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.lblHocKy.StylePriority.UseTextAlignment = false;
-            this.lblHocKy.Text = "Học kỳ: ...";
-            this.lblHocKy.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // Xrpt_DanhSachDongHocPhiLop
             // 

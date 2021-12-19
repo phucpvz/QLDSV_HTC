@@ -726,6 +726,11 @@ namespace QLDSV_HTC.Forms
             0});
             this.spinHocPhi.Properties.IsFloatValue = false;
             this.spinHocPhi.Properties.Mask.EditMask = "N00";
+            this.spinHocPhi.Properties.MaxValue = new decimal(new int[] {
+            2000000000,
+            0,
+            0,
+            0});
             this.spinHocPhi.Size = new System.Drawing.Size(163, 20);
             this.spinHocPhi.TabIndex = 5;
             // 
@@ -1036,7 +1041,7 @@ namespace QLDSV_HTC.Forms
             this.spinSoTienDong.Properties.IsFloatValue = false;
             this.spinSoTienDong.Properties.Mask.EditMask = "N00";
             this.spinSoTienDong.Properties.MaxValue = new decimal(new int[] {
-            1000000000,
+            2000000000,
             0,
             0,
             0});
