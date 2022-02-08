@@ -31,7 +31,6 @@ namespace QLDSV_HTC
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            DevExpress.Utils.Animation.PushTransition pushTransition1 = new DevExpress.Utils.Animation.PushTransition();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnLop = new DevExpress.XtraBars.BarButtonItem();
             this.btnSinhVien = new DevExpress.XtraBars.BarButtonItem();
@@ -70,7 +69,6 @@ namespace QLDSV_HTC
             this.lblMAGV = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblHOTEN = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblNHOM = new System.Windows.Forms.ToolStripStatusLabel();
-            this.workspaceManager1 = new DevExpress.Utils.WorkspaceManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.statusStrip.SuspendLayout();
@@ -100,6 +98,7 @@ namespace QLDSV_HTC
             this.btnBDTongKet,
             this.btnChangePassword});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonControl1.MaxItemId = 29;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -108,7 +107,7 @@ namespace QLDSV_HTC
             this.rbpHocPhi,
             this.rbpBaoCao,
             this.rbpCaiDat});
-            this.ribbonControl1.Size = new System.Drawing.Size(960, 158);
+            this.ribbonControl1.Size = new System.Drawing.Size(1120, 193);
             // 
             // btnLop
             // 
@@ -393,10 +392,9 @@ namespace QLDSV_HTC
             this.lblMAGV,
             this.lblHOTEN,
             this.lblNHOM});
-            this.statusStrip.Location = new System.Drawing.Point(0, 528);
+            this.statusStrip.Location = new System.Drawing.Point(0, 649);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
-            this.statusStrip.Size = new System.Drawing.Size(960, 24);
+            this.statusStrip.Size = new System.Drawing.Size(1120, 30);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "statusStrip";
             // 
@@ -404,7 +402,7 @@ namespace QLDSV_HTC
             // 
             this.lblMAGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lblMAGV.Name = "lblMAGV";
-            this.lblMAGV.Size = new System.Drawing.Size(41, 19);
+            this.lblMAGV.Size = new System.Drawing.Size(51, 24);
             this.lblMAGV.Text = "MAGV";
             this.lblMAGV.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             // 
@@ -414,7 +412,7 @@ namespace QLDSV_HTC
             this.lblHOTEN.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.lblHOTEN.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
             this.lblHOTEN.Name = "lblHOTEN";
-            this.lblHOTEN.Size = new System.Drawing.Size(49, 19);
+            this.lblHOTEN.Size = new System.Drawing.Size(61, 24);
             this.lblHOTEN.Text = "HOTEN";
             // 
             // lblNHOM
@@ -423,23 +421,19 @@ namespace QLDSV_HTC
             this.lblNHOM.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.lblNHOM.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
             this.lblNHOM.Name = "lblNHOM";
-            this.lblNHOM.Size = new System.Drawing.Size(49, 19);
+            this.lblNHOM.Size = new System.Drawing.Size(59, 24);
             this.lblNHOM.Text = "NHOM";
-            // 
-            // workspaceManager1
-            // 
-            this.workspaceManager1.TargetControl = this;
-            this.workspaceManager1.TransitionType = pushTransition1;
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(960, 552);
+            this.ClientSize = new System.Drawing.Size(1120, 679);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.ribbonControl1);
             this.IconOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("frmMain.IconOptions.LargeImage")));
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmMain";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Quản lý điểm sinh viên - Hệ tín chỉ";
@@ -470,7 +464,6 @@ namespace QLDSV_HTC
         private DevExpress.XtraBars.BarButtonItem btnMonHoc;
         private DevExpress.XtraBars.BarButtonItem btnGiangVien;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
-        private DevExpress.Utils.WorkspaceManager workspaceManager1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem btnLopTinChi;
         private DevExpress.XtraBars.BarButtonItem btnDiem;

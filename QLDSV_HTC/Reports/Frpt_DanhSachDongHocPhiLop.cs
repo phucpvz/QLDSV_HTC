@@ -40,7 +40,8 @@ namespace QLDSV_HTC.Reports
                 return;
             }
             string maLop = lkupLop.EditValue.ToString();
-            string maKhoa = (bdsLop[bdsLop.Position] as DataRowView)["MAKHOA"].ToString();
+            bdsLop.Position = bdsLop.Find("MALOP", maLop);
+            string maKhoa = (bdsLop[bdsLop.Position] as DataRowView)["MAKHOA"].ToString().Trim();
             string nienKhoa = cmbNK.Text.Trim();
             if (string.IsNullOrEmpty(nienKhoa))
             {
